@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.fio.cz/schema/importIB.xsd">
+  <Orders>
+    <DomesticTransaction>
+      <accountFrom>2700785944</accountFrom>
+      <currency>CZK</currency>
+      <amount>360.25</amount>
+      <accountTo>0000-1181202051</accountTo>
+      <bankCode>3030</bankCode>
+      <vs>112</vs>
+      <date>2016-08-19</date>
+      <messageForRecipient>platba - tel. tarif: 776575179</messageForRecipient>
+      <comment>Lukas Konarik</comment>
+      <paymentReason>380</paymentReason>
+      <paymentType>431022</paymentType>
+    </DomesticTransaction>
+    <DomesticTransaction>
+      <accountFrom>2700785944</accountFrom>
+      <currency>CZK</currency>
+      <amount>1060.60</amount>
+      <accountTo>1181554321</accountTo>
+      <bankCode>3030</bankCode>
+      <vs>66</vs>
+      <date>2016-08-19</date>
+      <messageForRecipient>platba - tel. tarif: 776575179</messageForRecipient>
+      <comment>Lukáš</comment>
+      <paymentReason>380</paymentReason>
+      <paymentType>431022</paymentType>
+    </DomesticTransaction>
+    <DomesticTransaction>
+      <accountFrom>2700785944</accountFrom>
+      <currency>CZK</currency>
+      <amount>670.10</amount>
+      <accountTo>1181557322</accountTo>
+      <bankCode>0100</bankCode>
+      <vs>67</vs>
+      <date>2016-08-19</date>
+      <messageForRecipient>platba - tel. tarif: 776575179</messageForRecipient>
+      <comment>??žý?íš?éié</comment>
+      <paymentReason>380</paymentReason>
+      <paymentType>431022</paymentType>
+    </DomesticTransaction>
+  </Orders>
+</Import>

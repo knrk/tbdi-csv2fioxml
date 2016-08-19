@@ -1,0 +1,1 @@
+curl -X POST -F "type=xml" -F "token=cbu9ctzLlw7Z2JoZWMwUhC1eoFETRTqcnceWHeQV5WWdWTtnQ8szfN9e1Ca9J38W" -F "file=@./output.xml" https://www.fio.cz/ib_api/rest/import/> odpoved_serveru.xml 2>errorlog.txt
