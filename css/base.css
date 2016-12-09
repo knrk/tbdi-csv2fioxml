@@ -17,6 +17,13 @@ hr {
   display: none;
 }
 
+i.success {
+  color: green;
+}
+i.error {
+  color: red;
+}
+
 .mdl-checkbox + .sub {
   margin-left: 24px;
 }
@@ -134,8 +141,7 @@ hr {
   align-items: center;
   margin-bottom: 10px;
 }
-.upload-card .mdl-card__supporting-text p i.success {
-  color: green;
+.upload-card .mdl-card__supporting-text p i {
   margin-right: 3px;
 }
 .upload-card .mdl-file {

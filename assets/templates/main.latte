@@ -3,7 +3,7 @@
 {block upload-front}
 <div class="mdl-card__supporting-text mdl-card--expand">
   {if isset($sess['error']) && $sess['error'] == 'UNSUPPORTED_FILE'}
-    <span>Jsi si jistý, že opravdu nahráváš CSV soubor ? </span><br>
+    <p><i class="material-icons error">cancel</i>Jsi si jistý, že opravdu nahráváš CSV soubor ? </p>
   {/if}
   Nahraj správně strukturovaný CSV dokument. <br>Pokud nevíš, použij tento <a href="assets/priklad.csv" target="_blank">vzor</a>.
   <div class="mdl-file mdl-js-file mdl-file--floating-label">
@@ -23,16 +23,8 @@
     <p>Nyní stačí soubor stáhnout do počítače.</p>
   </div>
   <div class="mdl-card__actions mdl-card--border">
-    <a href="/" class="mdl-button mdl-button--raised" name="submit" type="submit">Zpět</a>
+    <a n:attr="href => $endpoint" class="mdl-button mdl-button--raised" name="submit" type="submit">Zpět</a>
     <a href="?download=true" class="mdl-button mdl-button--raised mdl-button--colored">Stáhnout FIO XML</a>
-  </div>
-{/block}
-
-{block upload-failed-front}
-  <div class="mdl-card__supporting-text mdl-card--expand">
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a href="/" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Zpět</a>
   </div>
 {/block}
 
@@ -46,12 +38,14 @@
     <span class="mdl-checkbox__label">Zálohovat konvertované soubory</span>
   </label>
   <div class="sub" n:attr="hide => $sess['config']['backup']">
+    {ifset $sess['archives']}
     <label>Existující zálohy:</label>
     <ul>
       {foreach $sess['archives'] as $file}
         <li><a href="backup/{$file|escapeurl}">{$file|substr:0,4}</a></li>
       {/foreach}
     </ul>
+  {/ifset}
   </div>
 
   <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="auto-import">

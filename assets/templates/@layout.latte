@@ -1,5 +1,5 @@
 {include 'header.latte'}
-<form name="app" id="app-form" action="/" method="POST" enctype="multipart/form-data">
+<form name="app" id="app-form" n:attr="action => $endpoint" method="POST" enctype="multipart/form-data">
   <div class="mdl-layout__container layout">
     <div class="flip-container">
     	<div class="flipper">
@@ -17,8 +17,6 @@
               {block upload-front}{/block}
             {elseif $sess['status'] == 'OK'}
               {block upload-success-front}{/block}
-            {elseif $sess['error'] == 'UPLOAD_ERROR'}
-              {block upload-failed-front}{/block}
             {/if}
           </div>
     		</div>

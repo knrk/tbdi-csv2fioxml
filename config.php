@@ -9,6 +9,7 @@ const PAYMENT_TYPE = '431022'; // FIO prikaz k inkasu
 const PAYMENT_REASON = '380'; // Viz FIO platebni tituly
 const CONSTANT_SYMBOL = '0308';
 
+define('ENDPOINT', $_SERVER['REQUEST_URI']);
 const UPLOAD_TARGET = './uploads/';
 const BACKUP_TARGET = './backup/';
 const FIO_XML_NAME = 'output';

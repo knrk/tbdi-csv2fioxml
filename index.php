@@ -188,15 +188,11 @@ if (isset($_GET['download'])) {
   }
 
   $params = [
+      'endpoint' => ENDPOINT,
       'appversion' => VERSION,
       'appbuild' => BUILD,
       'sess' => $_SESSION
   ];
-
-  $latte = new Latte\Engine;
-  $latte->setTempDirectory(sys_get_temp_dir());
-
-  $latte->render('assets/templates/main.latte', $params);
 
   // RESET
 
@@ -204,5 +200,13 @@ if (isset($_GET['download'])) {
   unset($_SESSION['uploaded_file']);
   unset($_SESSION['error']);
   unset($_SESSION['archives']);
+
+
+  // RENDER
+
+  $latte = new Latte\Engine;
+  $latte->setTempDirectory('tmp');
+
+  $latte->render('assets/templates/main.latte', $params);
 }
 ?>
