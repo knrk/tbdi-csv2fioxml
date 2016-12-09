@@ -45,8 +45,11 @@ i.error {
   padding-right: 0;
 }
 
+.mdl-file,
 .mdl-checkbox__label,
-.mdl-textfield__label {
+.is-focused .mdl-textfield__label,
+.mdl-textfield__label,
+.mdl-textfield__input {
   font-size: 14px;
 }
 .mdl-textfield {
@@ -143,9 +146,24 @@ i.error {
 }
 .upload-card .mdl-card__supporting-text p i {
   margin-right: 3px;
+  vertical-align: middle;
+}
+.upload-card .mdl-card__supporting-text p:last-child {
+  margin-top: 10px;
 }
 .upload-card .mdl-file {
-  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.upload-card .mdl-file .mdl-textfield__label,
+.upload-card .mdl-file .mdl-textfield__label::after,
+.upload-card .mdl-file .mdl-textfield__label span,
+.upload-card .mdl-file .mdl-button {
+  bottom: 0;
+}
+.upload-card .mdl-textfield__label {
+  top: 4px;
 }
 
 .upload-card .mdl-file .mdl-button:hover {

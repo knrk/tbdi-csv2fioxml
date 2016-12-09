@@ -2,14 +2,14 @@
 
 {block upload-front}
 <div class="mdl-card__supporting-text mdl-card--expand">
-  {if isset($sess['error']) && $sess['error'] == 'UNSUPPORTED_FILE'}
-    <p><i class="material-icons error">cancel</i>Jsi si jistý, že opravdu nahráváš CSV soubor ? </p>
-  {/if}
-  Nahraj správně strukturovaný CSV dokument. <br>Pokud nevíš, použij tento <a href="assets/priklad.csv" target="_blank">vzor</a>.
   <div class="mdl-file mdl-js-file mdl-file--floating-label">
     <input type="file" name="csvfilename" id="csvfilename" accept=".csv">
     <label class="mdl-file__label" for="csvfilename"><span>CSV Soubor</span></label>
   </div>
+  {if isset($sess['error']) && $sess['error'] == 'UNSUPPORTED_FILE'}
+    <p><i class="material-icons error">cancel</i>Jsi si jistý, že opravdu nahráváš CSV soubor ? </p>
+  {/if}
+  <p>Nahraj správně strukturovaný CSV dokument. <br>Pokud nevíš, použij tento <a href="assets/priklad.csv" target="_blank">vzor</a>.</p>
 </div>
 <div class="mdl-card__actions mdl-card--border">
   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" name="submit" type="submit">Generuj FIO XML</button>
