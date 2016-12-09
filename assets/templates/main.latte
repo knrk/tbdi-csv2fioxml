@@ -1,0 +1,66 @@
+{layout '@layout.latte'}
+
+{block upload-front}
+<div class="mdl-card__supporting-text mdl-card--expand">
+  {if isset($sess['error']) && $sess['error'] == 'UNSUPPORTED_FILE'}
+    <span>Jsi si jistý, že opravdu nahráváš CSV soubor ? </span><br>
+  {/if}
+  Nahraj správně strukturovaný CSV dokument. <br>Pokud nevíš, použij tento <a href="assets/priklad.csv" target="_blank">vzor</a>.
+  <div class="mdl-file mdl-js-file mdl-file--floating-label">
+    <input type="file" name="csvfilename" id="csvfilename" accept=".csv">
+    <label class="mdl-file__label" for="csvfilename"><span>CSV Soubor</span></label>
+  </div>
+</div>
+<div class="mdl-card__actions mdl-card--border">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" name="submit" type="submit">Generuj FIO XML</button>
+</div>
+{/block}
+
+{block upload-success-front}
+  <div class="mdl-card__supporting-text mdl-card--expand">
+    <p><i class="material-icons success">check_circle</i>Vše proběhlo v pořádku.</p>
+    <p>Soubor <b>{$sess['uploaded_file']}</b> byl úspěšně nahrán na server<br> a převod do formátu banky je již také hotový.</p>
+    <p>Nyní stačí soubor stáhnout do počítače.</p>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a href="/" class="mdl-button mdl-button--raised" name="submit" type="submit">Zpět</a>
+    <a href="?download=true" class="mdl-button mdl-button--raised mdl-button--colored">Stáhnout FIO XML</a>
+  </div>
+{/block}
+
+{block upload-failed-front}
+  <div class="mdl-card__supporting-text mdl-card--expand">
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a href="/" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Zpět</a>
+  </div>
+{/block}
+
+{block back}
+<div class="mdl-card__supporting-text mdl-card--expand">
+  <small>Verze {$appversion}.build-<b>{$appbuild}</b></small></span>
+  <hr>
+
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="backup-files" onchange="toggleSub()">
+    <input type="checkbox" name="backup-files" id="backup-files" class="mdl-checkbox__input" n:attr="checked => $sess['config']['backup']">
+    <span class="mdl-checkbox__label">Zálohovat konvertované soubory</span>
+  </label>
+  <div class="sub" n:attr="hide => $sess['config']['backup']">
+    <label>Existující zálohy:</label>
+    <ul>
+      {foreach $sess['archives'] as $file}
+        <li><a href="backup/{$file|escapeurl}">{$file|substr:0,4}</a></li>
+      {/foreach}
+    </ul>
+  </div>
+
+  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="auto-import">
+    <input type="checkbox" name="auto-import" id="auto-import" class="mdl-checkbox__input" n:attr="checked => $sess['config']['import']" disabled>
+    <span class="mdl-checkbox__label">Automaticky importovat do FIO banky</span>
+  </label>
+
+</div>
+<div class="mdl-card__actions mdl-card--border">
+  <a href="javascript:;" onclick="toggleSettings();" class="mdl-button mdl-button--raised">Zpět</a>
+</div>
+{/block}
